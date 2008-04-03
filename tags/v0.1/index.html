@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>ppDrag</title>
+	
+	<script src="http://jqueryjs.googlecode.com/svn/trunk/jquery/src/core.js" type="text/javascript"></script>
+	<script src="http://jqueryjs.googlecode.com/svn/trunk/jquery/src/selector.js" type="text/javascript"></script>
+	<script src="http://jqueryjs.googlecode.com/svn/trunk/jquery/src/event.js" type="text/javascript"></script>
+	<script src="http://jqueryjs.googlecode.com/svn/trunk/jquery/src/fx.js" type="text/javascript"></script>
+	<script src="http://jqueryjs.googlecode.com/svn/trunk/jquery/src/offset.js" type="text/javascript"></script>
+
+	<script src="http://jqueryjs.googlecode.com/svn/trunk/ui/ui.base.js" type="text/javascript"></script>
+	<script src="http://jqueryjs.googlecode.com/svn/trunk/ui/ui.draggable.js" type="text/javascript"></script>
+	
+	<script src="jquery.ppdrag.js" type="text/javascript"></script>
+	
+	<style type="text/css">
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			background-color: white;
+			color: black;
+		}
+		.dragbox {
+			width: 200px;
+			height: 50px;
+			border: 1px solid blue;
+			margin: 10px;
+			background: yellow;
+			text-align: center;
+			position: relative;
+		}
+		.codebox {
+			font-family: "Courier New", Courier, monospace;
+			border: 1px dashed blue;
+			padding: 2px;
+			margin: 3px;
+			color: green;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#box-ppdrag").ppdrag();
+			$("#box-ui-draggable").draggable();
+		});
+	</script>
+</head>
+
+<body>
+	<h1 style="margin-bottom: 3px; margin-top: 3px;">ppDrag</h1>
+	<h6 style="margin-top: 3px;"><a href="http://ppdrag.ppetrov.com/">Extremely Fast JavaScript Drag'n'Drop</a></h6>
+	<p>
+		ppDrag is a Drag&amp;Drop plugin for <a href="http://jquery.com/">jQuery</a>, which mimics the interface 
+		of <a href="http://ui.jquery.com/">jQuery UI</a>'s <a href="http://docs.jquery.com/UI/Draggables">Draggable</a>. Currently
+		supported is a small subset of its options, but the implementation is different (ppDrag
+		focuses on performance). Drag the boxes below while watching your CPU usage to see the 
+		differences in their speed:
+	</p>
+
+	<div class="dragbox" id="box-ppdrag">ppDrag</div>
+	<div class="dragbox" id="box-ui-draggable">jQuery.UI.draggable</div>
+	
+	<p>
+		All major existing browsers are supported. This includes IE6/7, Firefox1/2/3, Opera, Konqueror, Safari, etc.
+	</p>
+	
+	<h4 style="margin-bottom: 3px;">Download:</h4>
+	<p style="margin-top: 3px;">
+		ppDrag is licensed under the <a href="LGPL-LICENSE.txt">LGPL</a> license<br /><br />
+		Latest version <em>(0.1)</em>: <a href="jquery.ppdrag.js">jquery.ppdrag.js</a><br />
+		All downloads: <a href="http://code.google.com/p/ppdrag/downloads/list">http://code.google.com/p/ppdrag/downloads/list</a><br />
+		Subversion: <a href="http://code.google.com/p/ppdrag/source/checkout">http://code.google.com/p/ppdrag/source/checkout</a>
+	</p>
+	
+	<h4 style="margin-bottom: 3px;">Usage:</h4>
+	<ol style="margin-top: 3px;">
+		<li>
+			Include <a href="http://jquery.com/">jQuery</a>:
+			<div class="codebox">&lt;script src="jquery.js" type="text/javascript"&gt;&lt;/script&gt;</div>
+		</li>
+		<li>
+			Include ppDrag:
+			<div class="codebox">&lt;script src="jquery.ppdrag.js" type="text/javascript"&gt;&lt;/script&gt;</div>
+		</li>
+		<li>
+			Activate ppDrag. Example:
+			<div class="codebox">
+				$(document).ready(function() {<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;$("#element1").ppdrag();<br />
+				});<br />
+			</div>
+			<em>Note</em>: at the moment ppDrag doesn't support elements with static positioning.
+			Please use either relative, absolute, or fixed positioning.
+		</li>
+		<li>
+			<i>(optional)</i> Specify options. Example:
+			<div class="codebox">
+				$(document).ready(function() {<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;$("#element2").ppdrag({ zIndex: 1000 });<br />
+				});<br />
+			</div>
+		</li>
+		<li>
+			<i>(optional)</i> When no longer needed, you can deactivate ppDrag. Example:
+			<div class="codebox">
+				$("#element2").ppdrag("destroy");<br />
+			</div>
+		</li>
+	</ol>
+
+	<h4 style="margin-bottom: 3px;">Supported options:</h4>
+	<ul style="margin-top: 3px;">
+		<li>
+			<b>zIndex</b>: <i>[integer]</i> z-index for the element while being dragged.
+		</li>
+		<li>
+			<b>stop</b>: <i>[function(element)]</i> Function that gets called when dragging stops.
+		</li>
+	</ul>
+
+	<h4 style="margin-bottom: 3px;">History:</h4>
+	<ul style="margin-top: 3px;">
+		<li>
+			<b>Version 0.1</b> <i>(2008-04-03)</i>:<br />
+			&nbsp;&nbsp;Initial release
+		</li>
+	</ul>
+
+	<h4 style="margin-bottom: 3px;">ToDo:</h4>
+	<ul style="margin-top: 3px;">
+		<li>
+			Seems like IE's default actions are not prevented properly while handling mouse events. Investigate and fix.
+		</li>
+		<li>
+			Add support for <i>start</i> and <i>drag</i> callbacks
+		</li>
+		<li>
+			Add explicit support for static-positioned elements (currently supported are absolute, relative, fixed)
+		</li>
+		<li>
+			Add support for more of jQuery UI Draggable's options
+		</li>
+		<li>
+			<i>(possibly)</i> Add Droppables
+		</li>
+	</ul>
+
+	<h4 style="margin-bottom: 3px;">Contact:</h4>
+	<p style="margin-top: 3px;">
+		Copyright (c) 2008, Peter Petrov<br />
+		The author can be contacted at email: <i>ppetrov(at)ppetrov.com</i><br /><br />
+		Bugs and feature requests should be reported at the <a href="http://code.google.com/p/ppdrag/issues/list">issue tracker</a>.<br /><br />
+		If you like ppDrag, please consider a donation to support its development:
+	</p>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<div>
+<input type="hidden" name="cmd" value="_s-xclick" />
+<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-butcc-donate.gif" style="border: none;" name="submit" alt="PayPal - The safer, easier way to pay online!" />
+<img alt="" style="border: none;" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHNwYJKoZIhvcNAQcEoIIHKDCCByQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBGUad0+NchCGH8ZkcUh0E4KG/gThHztCf+aFdwhKmBMea+j6siDz3JKQKerO/e7t9cL3mMe95hakT8g2ZNzV40i44ZGE8kbWmELAtZ1qHKh+8skL4caZMQ8uUEpS53IHSIznFhK3Tgu+Axk36oc8Lb+7vgOqtXG5DWvqaDNOESkTELMAkGBSsOAwIaBQAwgbQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQIFA5Nd24gL2eAgZBqEdN8YJ+btKZ0Aw35HfuT22GFmQ5xlz+FFj9tu9d2ouXY73MhJakt4pJ/KcY3m6RlfWFXkiBJ3l4dJ5+VpQ8O/NL9/2/78i1gMjPDLxlK9cTqKlaXVqJEbNAj8qrdHJccHwR1iUw1JTBwP1yI2mQW/f8Md29OOqZ3E9c+KVZHFvP6nnltbvpqbW9qhBPeYYugggOHMIIDgzCCAuygAwIBAgIBADANBgkqhkiG9w0BAQUFADCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20wHhcNMDQwMjEzMTAxMzE1WhcNMzUwMjEzMTAxMzE1WjCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMFHTt38RMxLXJyO2SmS+Ndl72T7oKJ4u4uw+6awntALWh03PewmIJuzbALScsTS4sZoS1fKciBGoh11gIfHzylvkdNe/hJl66/RGqrj5rFb08sAABNTzDTiqqNpJeBsYs/c2aiGozptX2RlnBktH+SUNpAajW724Nv2Wvhif6sFAgMBAAGjge4wgeswHQYDVR0OBBYEFJaffLvGbxe9WT9S1wob7BDWZJRrMIG7BgNVHSMEgbMwgbCAFJaffLvGbxe9WT9S1wob7BDWZJRroYGUpIGRMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbYIBADAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4GBAIFfOlaagFrl71+jq6OKidbWFSE+Q4FqROvdgIONth+8kSK//Y/4ihuE4Ymvzn5ceE3S/iBSQQMjyvb+s2TWbQYDwcp129OPIbD9epdr4tJOUNiSojw7BHwYRiPh58S1xGlFgHFXwrEBb3dgNbMUa+u4qectsMAXpVHnD9wIyfmHMYIBmjCCAZYCAQEwgZQwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tAgEAMAkGBSsOAwIaBQCgXTAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0wODA0MDMxNDI5MzhaMCMGCSqGSIb3DQEJBDEWBBTE0/Ykzx3CQJak/PZzRmVe8UF98zANBgkqhkiG9w0BAQEFAASBgLaZVCZNFvkV+e1frNwY5mPTiaEl4JHovblnLzwcrUK5WQUru0efalibDNVxPKzP/JtnRyiNqGMa+NXh0NhtYwUjRYf7O28/ru20Qh9lOWKeROrdwIDSJtocBB7FInWK0EOaP9RI7xDN3kMnUoe8w9MZRDJqDOmqx+Cm8CTFPBVd-----END PKCS7-----" />
+</div>
+</form>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-336454-11");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
