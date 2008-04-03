@@ -1,6 +1,6 @@
 /*
  * ppDrag 0.1 - Extremely Fast Drag&Drop for jQuery
- * http://ppdrag.sourceforge.net/
+ * http://ppdrag.ppetrov.com/
  *
  * Copyright (c) 2008 Peter Petrov (ppetrov AT ppetrov DOT com)
  * Licensed under the LGPL (LGPL-LICENSE.txt) license.

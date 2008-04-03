@@ -25,7 +25,7 @@
 			width: 200px;
 			height: 50px;
 			border: 1px solid blue;
-			margin: 5px;
+			margin: 10px;
 			background: yellow;
 			text-align: center;
 			position: relative;
@@ -48,15 +48,15 @@
 
 <body>
 	<h1 style="margin-bottom: 3px; margin-top: 3px;">ppDrag</h1>
-	<h6 style="margin-top: 3px;"><a href="http://ppdrag.sourceforge.net/">Extremely Fast JavaScript Drag'n'Drop</a></h6>
+	<h6 style="margin-top: 3px;"><a href="http://ppdrag.ppetrov.com/">Extremely Fast JavaScript Drag'n'Drop</a></h6>
 	<p>
-		ppDrag is a Drag&amp;Drop plugin for jQuery, which tries to follow the interface 
-		of jQuery UI's <a href="http://docs.jquery.com/UI/Draggables">Draggable</a>. Currently
-		it supports a small subset of its options, but differs in its implementation (ppDrag
+		ppDrag is a Drag&amp;Drop plugin for <a href="http://jquery.com/">jQuery</a>, which mimics the interface 
+		of <a href="http://ui.jquery.com/">jQuery UI</a>'s <a href="http://docs.jquery.com/UI/Draggables">Draggable</a>. Currently
+		supported is a small subset of its options, but the implementation is different (ppDrag
 		focuses on performance). Drag the boxes below while watching your CPU usage to see the 
 		differences in their speed:
 	</p>
-	
+
 	<div class="dragbox" id="box-ppdrag">ppDrag</div>
 	<div class="dragbox" id="box-ui-draggable">jQuery.UI.draggable</div>
 	
@@ -68,14 +68,14 @@
 	<p style="margin-top: 3px;">
 		ppDrag is licensed under the <a href="LGPL-LICENSE.txt">LGPL</a> license<br /><br />
 		Latest version <em>(0.1)</em>: <a href="jquery.ppdrag.js">jquery.ppdrag.js</a><br />
-		Browse all downloads: <a href="http://code.google.com/p/ppdrag/downloads/list">http://code.google.com/p/ppdrag/downloads/list</a><br />
-		SVN: <a href="http://code.google.com/p/ppdrag/source/checkout">http://code.google.com/p/ppdrag/source/checkout</a>
+		All downloads: <a href="http://code.google.com/p/ppdrag/downloads/list">http://code.google.com/p/ppdrag/downloads/list</a><br />
+		Subversion: <a href="http://code.google.com/p/ppdrag/source/checkout">http://code.google.com/p/ppdrag/source/checkout</a>
 	</p>
 	
 	<h4 style="margin-bottom: 3px;">Usage:</h4>
 	<ol style="margin-top: 3px;">
 		<li>
-			Include jQuery:
+			Include <a href="http://jquery.com/">jQuery</a>:
 			<div class="codebox">&lt;script src="jquery.js" type="text/javascript"&gt;&lt;/script&gt;</div>
 		</li>
 		<li>
@@ -115,6 +115,14 @@
 		</li>
 		<li>
 			<b>stop</b>: <i>[function(element)]</i> Function that gets called when dragging stops.
+		</li>
+	</ul>
+
+	<h4 style="margin-bottom: 3px;">History:</h4>
+	<ul style="margin-top: 3px;">
+		<li>
+			<b>Version 0.1</b> <i>(2008-04-03)</i>:<br />
+			&nbsp;&nbsp;Initial release
 		</li>
 	</ul>
 
