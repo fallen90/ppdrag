@@ -15,17 +15,11 @@
 			background-color: white;
 			color: black;
 		}
-		.left {
-			float: left;
-		}
-		.clear {
-			clear: both;
-		}
 		.dragbox {
 			width: 200px;
 			height: 30px;
 			border: 1px solid blue;
-			margin: 25px 100px 25px 10px;
+			margin: 30px 10px 30px 10px;
 			background: yellow;
 			text-align: center;
 			position: relative;
@@ -40,8 +34,8 @@
 	</style>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$("#box-ppdrag").ppdrag();
-			$("#box-ui-draggable").draggable();
+			$("#box-ppdrag").ppdrag({ zIndex: 1000 });
+			$("#box-ui-draggable").draggable({ zIndex: 1000 });
 		});
 	</script>
 </head>
@@ -57,13 +51,12 @@
 		differences in their speed:
 	</p>
 
-	<div class="left">
-		<div class="dragbox" id="box-ppdrag">ppDrag</div>
-		<div class="dragbox" id="box-ui-draggable">jQuery.UI.draggable</div>
+	<div style="position: relative; height: 160px;">
+		<div style="position: absolute; left: 0px; right: 0px;">
+			<div class="dragbox" id="box-ppdrag">ppDrag</div>
+			<div class="dragbox" id="box-ui-draggable">jQuery.UI.draggable</div>
+		</div>
 	</div>
-	<div class="left">
-	</div>
-	<div class="clear"></div>
 	
 	<p>
 		The speed difference is more visible with slower CPU's. If you have a fast processor which supports SpeedStep or a similar technology, you can try lowering its frequency.
