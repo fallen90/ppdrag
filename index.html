@@ -19,7 +19,7 @@
 			width: 200px;
 			height: 30px;
 			border: 1px solid blue;
-			margin: 30px 10px 30px 10px;
+			margin: 40px 10px;
 			background: yellow;
 			text-align: center;
 			position: relative;
@@ -51,17 +51,14 @@
 		differences in their speed:
 	</p>
 
-	<div style="position: relative; height: 160px;">
-		<div style="position: absolute; left: 0px; right: 0px;">
-			<div class="dragbox" id="box-ppdrag">ppDrag</div>
-			<div class="dragbox" id="box-ui-draggable">jQuery.UI.draggable</div>
-		</div>
-	</div>
-	
+	<div class="dragbox" id="box-ppdrag">ppDrag</div>
+
+	<div class="dragbox" id="box-ui-draggable">jQuery.UI.draggable</div>
+
 	<p>
 		The speed difference is more visible with slower CPU's. If you have a fast processor which supports SpeedStep or a similar technology, you can try lowering its frequency.
 		Also, due to JavaScript engine optimizations in the last generation browsers, the speed difference is less than with older browsers. 
-		For example, the difference is greater with Firefox 2 than with Firefox 3.
+		For example, it is greater with Firefox 2 than with Firefox 3.
 	</p>
 	<p>
 		All major existing browsers are supported. This includes IE6/7, Firefox1/2/3, Opera, Konqueror, Safari, and probably others.
