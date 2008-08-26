@@ -1,8 +1,8 @@
 /*
- * ppDrag 0.1 - Extremely Fast Drag&Drop for jQuery
+ * ppDrag 0.2 - Extremely Fast Drag&Drop for jQuery
  * http://ppdrag.ppetrov.com/
  *
- * Copyright (c) 2008 Peter Petrov (ppetrov AT ppetrov DOT com)
+ * Copyright (c) 2008 Peter Petrov (ppetrov AT ppetrov.com)
  * Licensed under the LGPL (LGPL-LICENSE.txt) license.
  */
 
@@ -64,7 +64,7 @@
 				current.el.style.zIndex = current.zIndex;
 			}
 			if (data.options.stop) {
-				data.options.stop.apply(current.el);
+				data.options.stop.apply(current.el, [ current.el ]);
 			}
 			$.ppdrag.current = null;
 			if (event.stopPropagation) event.stopPropagation();
@@ -77,7 +77,7 @@
 				obj.addEventListener(type, fn, mode);
 			else if (obj.attachEvent) {
 				obj["e"+type+fn] = fn;
-				obj[type+fn] = function() { obj["e"+type+fn](window.event); }
+				obj[type+fn] = function() { return obj["e"+type+fn](window.event); }
 				obj.attachEvent("on"+type, obj[type+fn]);
 			}
 		},
